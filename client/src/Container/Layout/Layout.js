@@ -6,16 +6,28 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+
+import MainIcon from "../../components/svg/mainIcon";
+
+import { useTheme } from "@mui/material/styles";
+import { useHistory } from "react-router-dom";
+
+import { styled } from "@mui/material/styles";
+import { links } from "./data";
+
+const ButtonContainer = styled("div")(({ theme }) => ({
+    [theme.breakpoints.down("md")]: {
+        display: "none",
+    },
+}));
 
 const drawerWidth = 240;
 
@@ -23,32 +35,27 @@ function Layout(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
+    const theme = useTheme();
+    const history = useHistory();
+
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
 
     const drawer = (
         <div>
-            <Toolbar />
+            <Toolbar sx={{ display: "flex", flexDirection: "row" }}>
+                <MainIcon />
+                <Typography variant="h5" sx={{ marginLeft: theme.spacing(2) }}>
+                    好菜
+                </Typography>
+            </Toolbar>
             <Divider />
             <List>
-                {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-            <Divider />
-            <List>
-                {["All mail", "Trash", "Spam"].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
+                {links.map((item, index) => (
+                    <ListItem button key={item.text} onClick={() => history.push(item.url)}>
+                        <ListItemIcon>{item.icon}</ListItemIcon>
+                        <ListItemText primary={item.text} />
                     </ListItem>
                 ))}
             </List>
@@ -72,22 +79,34 @@ function Layout(props) {
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
-                        sx={{ mr: 2, display: { sm: "none" } }}
+                        sx={{ mr: 2, display: { md: "none" }, color: "black" }}
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div" sx={{ color: "black" }}>
-                        好菜
-                    </Typography>
-                    <div
-                        style={{
-                            backgroundColor: "green",
+
+                    <MainIcon />
+                    <Typography
+                        variant="h6"
+                        noWrap
+                        sx={{
+                            marginLeft: theme.spacing(2),
+                            color: "black",
                         }}
                     >
-                        <Button>This is a Button</Button>
-                        <Button>This is a Button</Button>
-                        <Button>This is a Button</Button>
-                    </div>
+                        好菜｜專屬於軍旅的APP
+                    </Typography>
+                    <div style={{ flexGrow: 1 }}></div>
+                    <ButtonContainer>
+                        {links.map((item, i) => (
+                            <Button
+                                key={i}
+                                sx={{ marginRight: theme.spacing(3) }}
+                                onClick={() => history.push(item.url)}
+                            >
+                                {item.text}
+                            </Button>
+                        ))}
+                    </ButtonContainer>
                 </Toolbar>
             </AppBar>
 
@@ -101,7 +120,7 @@ function Layout(props) {
                     keepMounted: true, // Better open performance on mobile.
                 }}
                 sx={{
-                    display: { xs: "block", sm: "none" },
+                    display: { sm: "block", md: "none" },
                     "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
                 }}
             >
@@ -110,32 +129,7 @@ function Layout(props) {
 
             <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
                 <Toolbar />
-                <Typography paragraph>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non enim
-                    praesent elementum facilisis leo vel. Risus at ultrices mi tempus imperdiet.
-                    Semper risus in hendrerit gravida rutrum quisque non tellus. Convallis convallis
-                    tellus id interdum velit laoreet id donec ultrices. Odio morbi quis commodo odio
-                    aenean sed adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-                    integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate eu
-                    scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis imperdiet
-                    massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-                    arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi
-                    tincidunt. Lorem donec massa sapien faucibus et molestie ac.
-                </Typography>
-                <Typography paragraph>
-                    Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget
-                    nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim neque
-                    volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus.
-                    Purus sit amet volutpat consequat mauris. Elementum eu facilisis sed odio morbi.
-                    Euismod lacinia at quis risus sed vulputate odio. Morbi tincidunt ornare massa
-                    eget egestas purus viverra accumsan in. In hendrerit gravida rutrum quisque non
-                    tellus orci ac. Pellentesque nec nam aliquam sem et tortor. Habitant morbi
-                    tristique senectus et. Adipiscing elit duis tristique sollicitudin nibh sit.
-                    Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-                    accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices
-                    sagittis orci a.
-                </Typography>
+                {props.children}
             </Box>
         </Box>
     );
