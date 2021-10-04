@@ -1,9 +1,6 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import google_play from "../../../images/google-play-badge.png";
-import apple_store from "../../../images/apple-download.png";
 import { useTheme } from "@mui/material/styles";
 
 import Iphone2 from "../../../components/svg/iphone2";
