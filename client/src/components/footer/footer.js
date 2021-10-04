@@ -1,42 +1,48 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
-import Container from "@material-ui/core/Container";
-import { Typography } from "@material-ui/core";
+import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+
+import { useTheme } from "@mui/material/styles";
+
 import MainIcon from "../svg/mainIcon";
 
-const useStyle = makeStyles((theme) => ({
-    root: {
-        width: "100%",
-        backgroundColor: "black",
-        color: "white",
-        flexGrow: 1,
-    },
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: "center",
-        color: theme.palette.text.secondary,
-    },
-    container: {
-        border: "dotted 2px green",
-    },
-    gridItem: {
-        padding: theme.spacing(4),
-    },
-}));
 const Footer = () => {
-    const classes = useStyle();
+    const theme = useTheme();
     return (
-        <div className={classes.root}>
+        <div
+            style={{
+                width: "100%",
+                backgroundColor: "black",
+                color: "white",
+                flexGrow: 1,
+
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+            }}
+        >
             <Grid container spacing={0}>
-                <Grid item xs={4} className={classes.gridItem}>
-                    <Container className={classes.container}>
+                <Grid
+                    item
+                    md={4}
+                    sx={{
+                        padding: theme.spacing(4),
+                        display: { xs: "none", sm: "none", md: "none", lg: "block" },
+                    }}
+                >
+                    <Container
+                        sx={
+                            {
+                                //border: "dotted 2px green",
+                            }
+                        }
+                    >
                         <div
                             style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
                         >
                             <MainIcon />
-                            <div>
+                            <div style={{ marginLeft: theme.spacing(2) }}>
                                 <Typography variant="h5">好菜</Typography>
                                 <div
                                     style={{
@@ -54,15 +60,45 @@ const Footer = () => {
                         </div>
                     </Container>
                 </Grid>
-                <Grid item xs={4} className={classes.gridItem}>
-                    <Container className={classes.container}>
+                <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    md={6}
+                    lg={4}
+                    sx={{
+                        padding: theme.spacing(4),
+                    }}
+                >
+                    <Container
+                        sx={
+                            {
+                                //border: "dotted 2px green",
+                            }
+                        }
+                    >
                         <Typography variant="h5">商業合作</Typography>
 
                         <Typography variant="subtitle1">good.dish.tw@gmail.com</Typography>
                     </Container>
                 </Grid>
-                <Grid item xs={4} className={classes.gridItem}>
-                    <Container className={classes.container}>
+                <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    md={6}
+                    lg={4}
+                    sx={{
+                        padding: theme.spacing(4),
+                    }}
+                >
+                    <Container
+                        sx={
+                            {
+                                //border: "dotted 2px green",
+                            }
+                        }
+                    >
                         <Typography variant="h5">聯絡資訊</Typography>
 
                         <Typography variant="subtitle1">Instagram</Typography>
@@ -71,6 +107,7 @@ const Footer = () => {
                     </Container>
                 </Grid>
             </Grid>
+            <Typography sx={{ margin: "auto", color: "#888888" }}>@2021 HaoTsai</Typography>
         </div>
     );
 };

@@ -22,6 +22,7 @@ import { useHistory } from "react-router-dom";
 
 import { styled } from "@mui/material/styles";
 import { links } from "./data";
+import Footer from "../../components/footer/footer";
 
 const ButtonContainer = styled("div")(({ theme }) => ({
     [theme.breakpoints.down("md")]: {
@@ -65,7 +66,7 @@ function Layout(props) {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <Box sx={{ display: "flex" }}>
+        <Box sx={{ display: "flex", flexDirection: "column" }}>
             <CssBaseline />
             <AppBar
                 position="fixed"
@@ -135,6 +136,7 @@ function Layout(props) {
                 <Toolbar />
                 {props.children}
             </Box>
+            <Footer />
         </Box>
     );
 }

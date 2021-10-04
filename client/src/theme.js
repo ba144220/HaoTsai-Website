@@ -13,6 +13,9 @@ export const theme = createTheme({
             light: "ffea98",
         },
     },
+    typography: {
+        fontFamily: "Roboto, Helvetica, Arial, PingFangTC-Semibold, PingFang TC",
+    },
     mixins: {
         toolbar: {
             minHeight: 56,
