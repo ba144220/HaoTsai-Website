@@ -8,7 +8,8 @@ import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./theme";
 import LandingPage from "./pages/LandingPage/LandingPage";
 
-import Layout from "./Container/Layout/Layout";
+import Layout from "./container/Layout/Layout";
+import Blogs from "./pages/Blogs/Blogs";
 const App = () => {
     useEffect(() => {
         Aos.init({});
@@ -19,6 +20,7 @@ const App = () => {
                 <Layout>
                     <Switch>
                         <Route exact path="/" component={LandingPage} />
+                        <Route exact path="/blogs" component={Blogs} />
                     </Switch>
                 </Layout>
             </BrowserRouter>
