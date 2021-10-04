@@ -86,16 +86,24 @@ function Layout(props) {
                     </IconButton>
 
                     <MainIcon />
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        sx={{
-                            marginLeft: theme.spacing(2),
-                            color: "black",
-                        }}
-                    >
-                        好菜｜專屬於軍旅的APP
-                    </Typography>
+                    <div style={{ display: "flex", flexDirection: "row" }}>
+                        <Typography
+                            variant="h6"
+                            noWrap
+                            sx={{
+                                marginLeft: theme.spacing(2),
+                                color: "black",
+                            }}
+                        >
+                            好菜｜專屬於
+                        </Typography>
+                        <Typography variant="h6" noWrap color="primary">
+                            軍旅
+                        </Typography>
+                        <Typography variant="h6" noWrap>
+                            的APP
+                        </Typography>
+                    </div>
                     <div style={{ flexGrow: 1 }}></div>
                     <ButtonContainer>
                         {links.map((item, i) => (

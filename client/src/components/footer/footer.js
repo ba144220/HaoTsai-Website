@@ -13,7 +13,7 @@ const Footer = () => {
         <div
             style={{
                 width: "100%",
-                backgroundColor: "black",
+                backgroundColor: theme.palette.background.main,
                 color: "white",
                 flexGrow: 1,
 
