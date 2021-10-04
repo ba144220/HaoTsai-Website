@@ -1,17 +1,25 @@
 import React from "react";
 
-import Grid from "@mui/material/Grid";
+import { useTheme } from "@mui/material/styles";
+
+import Page1 from "./Blocks/page1";
 
 const LandingPage = () => {
+    const theme = useTheme();
+
     return (
-        <Grid container>
-            <Grid item md={6} xs={12} sx={{ backgroundColor: "red" }}>
-                a
-            </Grid>
-            <Grid item md={6} xs={12} sx={{ backgroundColor: "red" }}>
-                b
-            </Grid>
-        </Grid>
+        <div
+            style={{
+                backgroundColor: "blue",
+                minWidth: "100%",
+                margin: 0,
+                p: 0,
+            }}
+        >
+            <Page1 />
+            <Page1 />
+            <Page1 />
+        </div>
     );
 };
 

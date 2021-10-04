@@ -73,7 +73,7 @@ function Layout(props) {
                     backgroundColor: "rgba(255,255,255,0.5)",
                 }}
             >
-                <Toolbar>
+                <Toolbar id="main-appbar-toolbar">
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -100,7 +100,11 @@ function Layout(props) {
                         {links.map((item, i) => (
                             <Button
                                 key={i}
-                                sx={{ marginRight: theme.spacing(3) }}
+                                sx={{
+                                    marginRight: theme.spacing(3),
+                                    color: theme.palette.primary.dark,
+                                    fontWeight: "bold",
+                                }}
                                 onClick={() => history.push(item.url)}
                             >
                                 {item.text}
@@ -127,7 +131,7 @@ function Layout(props) {
                 {drawer}
             </Drawer>
 
-            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+            <Box component="main" sx={{ flexGrow: 1, p: 0 }}>
                 <Toolbar />
                 {props.children}
             </Box>

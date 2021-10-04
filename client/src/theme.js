@@ -1,13 +1,22 @@
 import { createTheme } from "@mui/material/styles";
-import { green, red } from "@mui/material/colors";
 
 export const theme = createTheme({
     palette: {
         primary: {
-            main: red[500],
+            dark: "#5a7f1b",
+            main: "#8aae4a",
+            light: "#bce079",
         },
         secondary: {
-            main: green[500],
+            dark: "c9883a",
+            main: "#ffb868",
+            light: "ffea98",
+        },
+    },
+    mixins: {
+        toolbar: {
+            minHeight: 56,
+            maxHeight: 64,
         },
     },
 });
