@@ -70,7 +70,7 @@ function Layout(props) {
             <AppBar
                 position="fixed"
                 sx={{
-                    backgroundColor: "rgba(255,255,255,0.5)",
+                    backgroundColor: "rgba(255,255,255,0.95)",
                 }}
             >
                 <Toolbar id="main-appbar-toolbar">

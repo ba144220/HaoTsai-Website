@@ -6,13 +6,20 @@ import google_play from "../../../images/google-play-badge.png";
 import apple_store from "../../../images/apple-download.png";
 import { useTheme } from "@mui/material/styles";
 
-import Iphone1 from "../../../components/svg/iphone1";
+import Iphone2 from "../../../components/svg/iphone2";
 
-const Page1 = () => {
+const Page2 = () => {
     const theme = useTheme();
 
     return (
-        <Grid container sx={{ marginTop: theme.spacing(5), marginBottom: theme.spacing(10) }}>
+        <Grid
+            container
+            sx={{
+                marginTop: theme.spacing(5),
+                marginBottom: theme.spacing(10),
+                flexDirection: { sm: "column", md: "row-reverse" },
+            }}
+        >
             <Grid
                 item
                 sm={12}
@@ -31,7 +38,7 @@ const Page1 = () => {
                         position: "relative",
                         //border: "dotted 2px red",
                         display: "flex",
-                        flexDirection: "row-reverse",
+                        flexDirection: "row",
                         //justifyContent: { xs: "center", sm: "center", md: "end" },
                     }}
                 >
@@ -57,7 +64,7 @@ const Page1 = () => {
                                 marginTop: theme.spacing(5),
                             }}
                         >
-                            好菜
+                            倒數計時
                         </Typography>
 
                         <Grid
@@ -71,40 +78,12 @@ const Page1 = () => {
                             }}
                         >
                             <Grid item md={12} lg={6} textAlign={{ lg: "right", md: "center" }}>
-                                <Typography variant="h4">全台灣最大的</Typography>
+                                <Typography variant="h4">度過一輩子只有</Typography>
                             </Grid>
                             <Grid item md={12} lg={6} textAlign={{ lg: "left", md: "center" }}>
                                 <Typography variant="h4" color="primary">
-                                    軍旅匿名社群
+                                    一次的軍旅回憶
                                 </Typography>
-                            </Grid>
-                        </Grid>
-                        <Grid
-                            container
-                            direction="row"
-                            justifyContent="center"
-                            spacing={2}
-                            sx={{ marginBottom: theme.spacing(9) }}
-                        >
-                            <Grid item>
-                                <Button sx={{ height: "50px", padding: 0, margin: 0 }}>
-                                    <img
-                                        src={google_play}
-                                        alt=""
-                                        style={{ height: "50px" }}
-                                        onClick={() => console.log("google")}
-                                    />
-                                </Button>
-                            </Grid>
-                            <Grid item>
-                                <Button sx={{ height: "50px", padding: 0, margin: 0 }}>
-                                    <img
-                                        src={apple_store}
-                                        alt=""
-                                        style={{ height: "50px" }}
-                                        onClick={() => console.log("google")}
-                                    />
-                                </Button>
                             </Grid>
                         </Grid>
                     </Grid>
@@ -116,15 +95,15 @@ const Page1 = () => {
                 md={6}
                 sx={{
                     width: "100%",
-                    //border: "dotted 2px orange",
+                    // border: "dotted 2px orange",
                 }}
                 data-aos="fade-up"
                 data-aos-duration="1200"
             >
-                <Iphone1 />
+                <Iphone2 style={{ backgroundColor: "green" }} />
             </Grid>
         </Grid>
     );
 };
 
-export default Page1;
+export default Page2;
