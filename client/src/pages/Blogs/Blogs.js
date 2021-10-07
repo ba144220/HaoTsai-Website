@@ -41,7 +41,9 @@ const Blogs = () => {
                             color: "white",
                         }}
                     >
-                        <Typography variant="h4">我是大標題</Typography>
+                        <Typography variant="h4" noWrap>
+                            我是大標題
+                        </Typography>
                         <Typography variant="subtitle2">閱讀更多...</Typography>
                     </div>
                 </Grid>
@@ -83,7 +85,7 @@ const Blogs = () => {
                                     color: "white",
                                 }}
                             >
-                                <Typography variant="h4" noWrap>
+                                <Typography variant="h4" noWrap noWrap>
                                     我是大標題
                                 </Typography>
                                 <Typography variant="subtitle2">閱讀更多...</Typography>
@@ -123,7 +125,9 @@ const Blogs = () => {
                                     color: "white",
                                 }}
                             >
-                                <Typography variant="h4">我是大標題</Typography>
+                                <Typography variant="h4" noWrap>
+                                    我是大標題
+                                </Typography>
                                 <Typography variant="subtitle2">閱讀更多...</Typography>
                             </div>
                         </Grid>
